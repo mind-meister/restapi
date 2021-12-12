@@ -20,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/mind-meister/restapi/issues"
   },
-  "homepage": "https://github.com/mind-meister/restapi#readme"
+  "homepage": "https://github.com/mind-meister/restapi#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  }
 }
