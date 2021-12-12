@@ -1,5 +1,3 @@
-'use strict';
-
 const res = require("express/lib/response");
 
 exports.ok = function(values, res){
