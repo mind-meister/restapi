@@ -1,7 +1,7 @@
 const response = require("./res");
 const connection = require("./koneksi");
 
-exports.index = function (req, res) {
+exports.index = (req, res) => {
   response.ok("Aplikasi REST API berjalan!", res);
 };
 
@@ -49,4 +49,22 @@ exports.tambahMahasiswa = (req, res) => {
       }
     }
   );
+};
+
+// mengubah data berdasarkan id
+exports.ubahMahasiswa = (req, res) => {
+  const id = req.body.id_mahasiswa;
+  const nim = req.body.nim;
+  const nama = req.body.nama;
+  const jurusan = req.body.jurusan;
+
+  connection.query("UPDATE mahasiswa SET nim=?, nama=?, jurusan=? WHERE id_mahasiswa=?",
+    [nim, nama, jurusan, id],
+    function (error, rows, fields) {
+      if (error) {
+        console.log(error);
+      } else {
+        response.ok("Berhasil Mengubah Data", res);
+      }
+    });
 };
